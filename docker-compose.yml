@@ -1,0 +1,34 @@
+version: '2.0'
+services:
+  selenese:
+    build: ./
+    command: run.sh https://google.com chrome
+    volumes:
+      - ./run.sh:/usr/local/bin/run.sh
+      - ./selenese.conf:/etc/selenese.conf
+      - ./screenshots/all:/usr/local/share/screenshots/all
+      - ./screenshots/fail:/usr/local/share/screenshots/fail
+      - ./user-extension.js:/usr/local/share/user-extension.js
+      - ./testsuite.html:/usr/local/share/testsuite.html
+      - ./test:/usr/local/share/test
+    depends_on:
+      - hub
+  hub:
+    image: selenium/hub
+    ports:
+      - "4444:4444"
+  firefox:
+    extends: _node
+    image: selenium/node-firefox
+    depends_on:
+      - hub
+  chrome:
+    extends: _node
+    image: selenium/node-chrome
+    depends_on:
+      - hub
+  _node:
+    image: selenium/node
+    environment:
+      - HUB_PORT_4444_TCP_ADDR=hub
+      - HUB_PORT_4444_TCP_PORT=4444
