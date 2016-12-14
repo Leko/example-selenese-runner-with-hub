@@ -12,28 +12,25 @@ services:
       - ./screenshots/fail:/usr/local/share/screenshots/fail
       - ./user-extension.js:/usr/local/share/user-extension.js
       - ./testsuite.html:/usr/local/share/testsuite.html
-      - ./coverage:/usr/local/share/coverage
+      - ./junit:/usr/local/share/junit
       - ./test:/usr/local/share/test
     depends_on:
       - hub
   hub:
-    build:
-      context: .
-      dockerfile: ./docker/hub/Dockerfile
+    image: selenium/hub
     ports:
       - "4444:4444"
   firefox:
-    extends: _node
-    image: selenium/node-firefox
-    depends_on:
-      - hub
-  chrome:
-    extends: _node
-    image: selenium/node-chrome
-    depends_on:
-      - hub
-  _node:
-    image: selenium/node-chrome
+    build: ./docker/firefox
     environment:
       - HUB_PORT_4444_TCP_ADDR=hub
       - HUB_PORT_4444_TCP_PORT=4444
+    depends_on:
+      - hub
+  chrome:
+    build: ./docker/chrome
+    environment:
+      - HUB_PORT_4444_TCP_ADDR=hub
+      - HUB_PORT_4444_TCP_PORT=4444
+    depends_on:
+      - hub

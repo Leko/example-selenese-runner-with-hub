@@ -1,6 +1,7 @@
+.DS_Store
 screenshots/all/*
 !screenshots/all/.keep
 screenshots/fail/*
 !screenshots/fail/.keep
-coverage/*
-!coverage/.keep
+junit/*
+!junit/.keep

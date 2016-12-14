@@ -3,11 +3,15 @@
 
 Example of headless scenario testing used by [selenese-runner](https://github.com/vmi/selenese-runner-java) with [Selenium Hub](https://hub.docker.com/r/selenium/hub/)
 
-## Prerequirement
-- [docker-compose](https://docs.docker.com/compose/install/)
+## Features
+- ✓ Less settings
+- ✓ Support Japanese in screen shots
 
 ## Getting started
+### Prerequirement
+- [docker-compose](https://docs.docker.com/compose/install/)
 
+### Install
 ```
 git clone git@github.com:Leko/example-selenese-runner-with-hub.git
 docker-compose build
@@ -26,20 +30,35 @@ docker-compose run selenese run.sh https://google.com firefox
 
 ## Directory structure
 ```
-├── Dockerfile            # Build selenese-runner runtime
-├── run.sh                # Run selenese-runner
-├── screenshots
-│   ├── all               # Take screenshot for all step
-│   └── fail              # Take screenshot for fail step only
-├── selenese.conf         # Config file for selenese-runner
-├── test
-│   ├── demo-fail.html    # Example of failure test
-│   └── demo-success.html # Example of success test
-├── testsuite.html        # Testsuite
-└── user-extension.js     # rollup definition
+|-- junit/                # JUnit report
+|-- docker/
+|   |-- chrome/
+|   |   `-- Dockerfile    # Build selenium/node-chrome with japanese support
+|   |-- firefox/
+|   |   `-- Dockerfile    # Build selenium/node-firefox with japanese support
+|   `-- selenese/
+|       `-- Dockerfile    # Build selenese-runner runtime
+|-- screenshots/
+|   |-- all/              # Take screenshot for all step
+|   `-- fail/             # Take screenshot for fail step only
+|-- test/
+|   |-- demo-fail.html    # Example of failure test
+|   `-- demo-success.html # Example of success test
+|-- circle.yml            # Example of CircleCI settings
+|-- run.sh                # Wrapper to run selenese-runner command
+|-- selenese.conf         # Config file for selenese-runner
+|-- testsuite.html        # Testsuite
+`-- user-extension.js     # rollup definition
 ```
 
 ## More information
 
 Please read this article:  
 [Selenium IDEで作ったテストをCLIで動かす方法](http://leko.jp/archives/908)
+
+## Contribution
+
+1. Fork ([Leko/example-selenese-runner-with-hub](https://github.com/Leko/example-selenese-runner-with-hub/fork))
+1. Create a feature branch
+1. Commit your changes
+1. Create new Pull Request to `master` branch

@@ -15,7 +15,7 @@ test:
     - docker-compose run selenese run.sh https://google.com firefox
   post:
     - docker-compose down
-    - mv coverage $CIRCLE_TEST_REPORTS/junit
+    - mv junit $CIRCLE_TEST_REPORTS/junit
     - mv screenshots $CIRCLE_ARTIFACTS/screenshots
     - find $CIRCLE_TEST_REPORTS -name "*.keep" | xargs rm # cleanup
     - find $CIRCLE_ARTIFACTS -name "*.keep" | xargs rm    # cleanup
