@@ -1,7 +1,9 @@
 version: '2.0'
 services:
   selenese:
-    build: ./
+    build:
+      context: .
+      dockerfile: ./docker/selenese/Dockerfile
     command: run.sh https://google.com chrome
     volumes:
       - ./run.sh:/usr/local/bin/run.sh
@@ -15,7 +17,9 @@ services:
     depends_on:
       - hub
   hub:
-    image: selenium/hub
+    build:
+      context: .
+      dockerfile: ./docker/hub/Dockerfile
     ports:
       - "4444:4444"
   firefox:

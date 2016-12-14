@@ -7,7 +7,7 @@ machine:
 dependencies:
   override:
     - docker-compose pull
-    - docker-compose build selenese
+    - docker-compose build
 test:
   override:
     - docker-compose up -d chrome firefox
@@ -16,4 +16,6 @@ test:
   post:
     - docker-compose down
     - mv coverage $CIRCLE_TEST_REPORTS/junit
-    - mv screenshots $CIRCLE_TEST_REPORTS/screenshots
+    - mv screenshots $CIRCLE_ARTIFACTS/screenshots
+    - find $CIRCLE_TEST_REPORTS -name "*.keep" | xargs rm # cleanup
+    - find $CIRCLE_ARTIFACTS -name "*.keep" | xargs rm    # cleanup
