@@ -11,6 +11,7 @@ Example of headless scenario testing used by [selenese-runner](https://github.co
 ```
 git clone git@github.com:Leko/example-selenese-runner-with-hub.git
 docker-compose build
+docker-compose up -d chrome firefox
 docker-compose up selenese
 ```
 

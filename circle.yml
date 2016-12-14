@@ -13,6 +13,7 @@ dependencies:
     - docker-compose build selenese
 test:
   override:
-    - docker-compose up selenese
+    - docker-compose run selenese run.sh https://google.com chrome
+    - docker-compose run selenese run.sh https://google.com firefox
   post:
     - mv coverage $CIRCLE_TEST_REPORTS/junit
