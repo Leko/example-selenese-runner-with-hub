@@ -1,3 +1,4 @@
+.DS_Store
 screenshots/all/*
 !screenshots/all/.keep
 screenshots/fail/*
