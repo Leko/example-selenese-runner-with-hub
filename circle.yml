@@ -1,6 +1,3 @@
-general:
-  artifacts:
-    - "screenshots" # relative to the build directory
 machine:
   services:
     - docker
@@ -19,3 +16,4 @@ test:
   post:
     - docker-compose down
     - mv coverage $CIRCLE_TEST_REPORTS/junit
+    - mv screenshots $CIRCLE_TEST_REPORTS/screenshots
