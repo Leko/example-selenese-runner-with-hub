@@ -3,11 +3,15 @@
 
 Example of headless scenario testing used by [selenese-runner](https://github.com/vmi/selenese-runner-java) with [Selenium Hub](https://hub.docker.com/r/selenium/hub/)
 
-## Prerequirement
-- [docker-compose](https://docs.docker.com/compose/install/)
+## Features
+- ✓ Less settings
+- ✓ Support Japanese in screen shots
 
 ## Getting started
+### Prerequirement
+- [docker-compose](https://docs.docker.com/compose/install/)
 
+### Install
 ```
 git clone git@github.com:Leko/example-selenese-runner-with-hub.git
 docker-compose build
@@ -28,8 +32,10 @@ docker-compose run selenese run.sh https://google.com firefox
 ```
 |-- junit/                # JUnit report
 |-- docker/
-|   |-- hub/
-|   |   `-- Dockerfile    # Build selenium/hub with japanese support
+|   |-- chrome/
+|   |   `-- Dockerfile    # Build selenium/node-chrome with japanese support
+|   |-- firefox/
+|   |   `-- Dockerfile    # Build selenium/node-firefox with japanese support
 |   `-- selenese/
 |       `-- Dockerfile    # Build selenese-runner runtime
 |-- screenshots/
