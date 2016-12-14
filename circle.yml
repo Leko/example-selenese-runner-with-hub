@@ -9,6 +9,7 @@ machine:
    - sudo pip install docker-compose
 dependencies:
   override:
+    - docker-compose pull
     - docker-compose build selenese
 test:
   override:

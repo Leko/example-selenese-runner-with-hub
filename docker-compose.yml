@@ -29,7 +29,7 @@ services:
     depends_on:
       - hub
   _node:
-    image: selenium/node
+    image: selenium/node-chrome
     environment:
       - HUB_PORT_4444_TCP_ADDR=hub
       - HUB_PORT_4444_TCP_PORT=4444
