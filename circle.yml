@@ -1,3 +1,6 @@
+general:
+  artifacts:
+    - "screenshots" # relative to the build directory
 machine:
   pre:
    - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
@@ -8,3 +11,5 @@ dependencies:
 test:
   override:
     - docker-compose up selenese
+  post:
+    - mv coverage $CIRCLE_TEST_REPORTS/junit
