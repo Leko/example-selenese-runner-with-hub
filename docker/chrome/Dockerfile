@@ -1,6 +1,7 @@
 FROM selenium/node-chrome
 
 # Add japanese support
+# https://www.ubuntulinux.jp/japanese
 RUN cd /tmp \
     && wget -q https://www.ubuntulinux.jp/ubuntu-ja-archive-keyring.gpg -O- | sudo apt-key add - \
     && wget -q https://www.ubuntulinux.jp/ubuntu-jp-ppa-keyring.gpg -O- | sudo apt-key add - \
