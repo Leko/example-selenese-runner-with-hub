@@ -12,7 +12,7 @@ services:
       - ./screenshots/fail:/usr/local/share/screenshots/fail
       - ./user-extension.js:/usr/local/share/user-extension.js
       - ./testsuite.html:/usr/local/share/testsuite.html
-      - ./coverage:/usr/local/share/coverage
+      - ./junit:/usr/local/share/junit
       - ./test:/usr/local/share/test
     depends_on:
       - hub
