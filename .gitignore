@@ -2,3 +2,5 @@ screenshots/all/*
 !screenshots/all/.keep
 screenshots/fail/*
 !screenshots/fail/.keep
+coverage/*
+!coverage/.keep
