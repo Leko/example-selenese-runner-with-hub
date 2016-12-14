@@ -1,5 +1,5 @@
-
 # [selenese-runner](https://github.com/vmi/selenese-runner-java) with [Selenium Hub](https://hub.docker.com/r/selenium/hub/)
+[![CircleCI](https://circleci.com/gh/Leko/example-selenese-runner-with-hub/tree/master.svg?style=svg)](https://circleci.com/gh/Leko/example-selenese-runner-with-hub/tree/master)
 
 Example of headless scenario testing used by [selenese-runner](https://github.com/vmi/selenese-runner-java) with [Selenium Hub](https://hub.docker.com/r/selenium/hub/)
 
