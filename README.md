@@ -55,3 +55,10 @@ docker-compose run selenese run.sh https://google.com firefox
 
 Please read this article:  
 [Selenium IDEで作ったテストをCLIで動かす方法](http://leko.jp/archives/908)
+
+## Contribution
+
+1. Fork ([Leko/example-selenese-runner-with-hub](https://github.com/Leko/example-selenese-runner-with-hub/fork))
+1. Create a feature branch
+1. Commit your changes
+1. Create new Pull Request to `master` branch
