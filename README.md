@@ -26,17 +26,23 @@ docker-compose run selenese run.sh https://google.com firefox
 
 ## Directory structure
 ```
-├── Dockerfile            # Build selenese-runner runtime
-├── run.sh                # Run selenese-runner
-├── screenshots
-│   ├── all               # Take screenshot for all step
-│   └── fail              # Take screenshot for fail step only
-├── selenese.conf         # Config file for selenese-runner
-├── test
-│   ├── demo-fail.html    # Example of failure test
-│   └── demo-success.html # Example of success test
-├── testsuite.html        # Testsuite
-└── user-extension.js     # rollup definition
+|-- junit/                # JUnit report
+|-- docker/
+|   |-- hub/
+|   |   `-- Dockerfile    # Build selenium/hub with japanese support
+|   `-- selenese/
+|       `-- Dockerfile    # Build selenese-runner runtime
+|-- screenshots/
+|   |-- all/              # Take screenshot for all step
+|   `-- fail/             # Take screenshot for fail step only
+|-- test/
+|   |-- demo-fail.html    # Example of failure test
+|   `-- demo-success.html # Example of success test
+|-- circle.yml            # Example of CircleCI settings
+|-- run.sh                # Wrapper to run selenese-runner command
+|-- selenese.conf         # Config file for selenese-runner
+|-- testsuite.html        # Testsuite
+`-- user-extension.js     # rollup definition
 ```
 
 ## More information
