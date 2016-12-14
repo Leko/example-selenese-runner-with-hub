@@ -1,4 +1,4 @@
-FROM selenium/hub
+FROM selenium/node-firefox
 
 # Add japanese support
 RUN cd /tmp \
