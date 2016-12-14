@@ -1,0 +1,21 @@
+machine:
+  services:
+    - docker
+  pre:
+   - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
+   - sudo pip install docker-compose
+dependencies:
+  override:
+    - docker-compose pull
+    - docker-compose build
+test:
+  override:
+    - docker-compose up -d chrome firefox
+    - docker-compose run selenese run.sh https://google.com chrome
+    - docker-compose run selenese run.sh https://google.com firefox
+  post:
+    - docker-compose down
+    - mv coverage $CIRCLE_TEST_REPORTS/junit
+    - mv screenshots $CIRCLE_ARTIFACTS/screenshots
+    - find $CIRCLE_TEST_REPORTS -name "*.keep" | xargs rm # cleanup
+    - find $CIRCLE_ARTIFACTS -name "*.keep" | xargs rm    # cleanup
